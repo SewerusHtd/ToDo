@@ -1,0 +1,21 @@
+<div class='centered-title'>
+    <div class='title'>
+        ChaosApp
+    </div>
+    <div class='description'>
+        Web app to plan tasks
+    </div>
+    <div class='new-project-form'>
+        <%= render "_new_project_form.html", conn: @conn, changeset: @changeset %>
+    </div>
+    <div class='manage-project-links'>
+        <%= link("See all tasks", to: "/items") %>
+    </div>
+</div>
+<div id="fixed-background">
+    <div id='projects-container'>
+        <%= for project <- @projects do %>
+            <%= render "_project.html", project: project %>
+        <% end %>
+    </div>
+</div>

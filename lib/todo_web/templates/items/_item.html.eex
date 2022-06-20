@@ -1,0 +1,16 @@
+<div id='item_<%= @item.id %>' class='moving-item moving-item-<%= rem(@item.id, 4) + 1 %>'>
+    <div class='item <%= if @item.completed do 'completed' else 'incompleted' end %>' style='animation-duration: <%= Enum.random(0..30) + 15 %>s, <%= Enum.random(0..30) + 15 %>s;'>
+        <h3><%= @item.description %></h3>
+
+        <div class='items-links'>
+        <%= if @item.completed do %>
+            <%=link("Delete", to: "/items/#{@item.id}", method: :delete, data: [remote: true]) %>
+        <% else %>
+            <span class='completed-link'>
+                <%=link("Mark as completed", to: "/items/#{@item.id}/complete", method: :patch, data: [remote: true]) %> |
+            </span>
+            <%=link("Delete", to: "/items/#{@item.id}", method: :delete, data: [remote: true]) %>
+        <% end %>
+        </div>
+    </div>
+</div>

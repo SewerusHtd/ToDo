@@ -1,0 +1,19 @@
+defmodule Todo.Projects.Project do
+
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  schema "projects" do
+    field :title, :string
+    field :color, :string
+
+    has_many :items, Todo.Items.Item
+
+    timestamps()
+  end
+
+  def changeset(project, params) do
+    project
+    |> cast(params, [:title, :color])
+  end
+end

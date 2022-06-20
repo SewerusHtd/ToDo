@@ -1,0 +1,6 @@
+<%= form_for @changeset, Routes.items_path(@conn, :create), [data: [remote: true]], fn f -> %>
+    <label>
+        Add a new task: <%= text_input f, :description %>
+    </label>
+    <%= hidden_input f, :project_id, value: @project.id %>
+<% end %>

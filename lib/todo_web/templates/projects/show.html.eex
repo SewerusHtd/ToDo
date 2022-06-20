@@ -1,0 +1,26 @@
+<div class='centered-title'>
+    <div class='title'>
+        ChaosApp
+    </div>
+    <div id='project-title' class='description' data-id='<%= @project.id %>'>
+        Project: <%= @project.title %>
+    </div>
+    <div class='manage-project-links'>
+        <%= link("Back", to: "/projects") %> |
+        <%= link("Edit", to: "/projects/#{@project.id}/edit", data: [remote: true]) %> |
+        <%= link("Delete", to: "/projects/#{@project.id}", method: :delete) %>
+    </div>
+    <div class='new-item-form'>
+        <%= render "_new_item_form.html", conn: @conn, changeset: @changeset, project: @project %>
+    </div>
+</div>
+<div id="fixed-background">
+    <div id='items-container'>
+        <%= for item <- @project.items do %>
+            <%= render TodoWeb.ItemsView, "_item.html", item: item %>
+        <% end %>
+    </div>
+</div>
+<script>
+    document.getElementsByTagName("html")[0].style.background = "linear-gradient(to top, black 0%, <%= @project.color %> 40%, black 42%)";
+</script>

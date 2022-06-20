@@ -1,0 +1,36 @@
+<component name="libraryTable">
+  <library name="sass_compiler" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/sass_compiler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/sass_compiler/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/lib" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/c_src" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/lib" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/c_src" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/lib" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/priv" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/c_src" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/lib" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/priv" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/c_src" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/lib" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/priv" />
+      <root url="file://$PROJECT_DIR$/deps/sass_compiler/c_src" />
+    </SOURCES>
+  </library>
+</component>

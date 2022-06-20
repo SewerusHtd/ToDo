@@ -1,0 +1,4 @@
+$("#project-title").html("<%= Phoenix.HTML.javascript_escape(
+    render("_form.html", conn: @conn, changeset: @changeset, path: Routes.projects_path(@conn, :update, @project.id))
+) %>");
+makeRemote();

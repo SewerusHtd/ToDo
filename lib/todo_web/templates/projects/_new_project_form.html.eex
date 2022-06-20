@@ -1,0 +1,4 @@
+<label>
+    Add a new project:
+    <%= render "_form.html", changeset: @changeset, conn: @conn, path: Routes.projects_path(@conn, :create) %>
+</label>
