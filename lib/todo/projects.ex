@@ -25,9 +25,12 @@ defmodule Todo.Projects do
   end
 
   def create_project(params) do
-    {:ok, project}  = (%Project{}
+    (%Project{}
     |> Project.changeset(params)
     |> Repo.insert)
-    project
+  end
+
+  def count do
+    Repo.aggregate(Project, :count, :id)
   end
 end

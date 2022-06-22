@@ -12,8 +12,11 @@ defmodule Todo.Projects.Project do
     timestamps()
   end
 
+  @required_fields ~w(title color)a
+
   def changeset(project, params) do
     project
     |> cast(params, [:title, :color])
+    |> validate_required(@required_fields)
   end
 end

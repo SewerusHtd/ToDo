@@ -18,9 +18,10 @@ defmodule TodoWeb.ProjectsController do
   end
 
   def create(conn, %{"project" => project_params}) do
-    Projects.create_project(project_params)
-    |> IO.inspect
-    |> TodoWeb.ProjectsChannel.send_created()
+    case Projects.create_project(project_params) do
+      {:ok, project} -> TodoWeb.ProjectsChannel.send_created(project)
+      {:error, errors} -> IO.inspect(errors)
+    end
     render(conn, "create.js")
   end
 
