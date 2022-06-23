@@ -4,12 +4,12 @@
 
         <div class='items-links'>
         <%= if @item.completed do %>
-            <%=link("Delete", to: "/items/#{@item.id}", method: :delete, data: [remote: true]) %>
+            <%=link("Delete", to: Routes.items_path(@conn, :delete, @item.id), method: :delete, data: [remote: true]) %>
         <% else %>
             <span class='completed-link'>
-                <%=link("Mark as completed", to: "/items/#{@item.id}/complete", method: :patch, data: [remote: true]) %> |
+                <%=link("Mark as completed", to: Routes.items_path(@conn, :complete, @item.id), method: :patch, data: [remote: true]) %> |
             </span>
-            <%=link("Delete", to: "/items/#{@item.id}", method: :delete, data: [remote: true]) %>
+            <%=link("Delete", to: Routes.items_path(@conn, :delete, @item.id), method: :delete, data: [remote: true]) %>
         <% end %>
         </div>
     </div>

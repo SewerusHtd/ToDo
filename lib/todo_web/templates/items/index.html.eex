@@ -9,13 +9,13 @@
         All tasks are here
     </div>
     <div class='manage-project-links'>
-        <%= link("See all projects", to: "/projects") %>
+        <%= link("See all projects", to: Routes.projects_path(@conn, :index)) %>
     </div>
 </div>
 <div id="fixed-background">
     <div id='items-container'>
         <%= for item <- @items do %>
-            <%= render "_item.html", item: item %>
+            <%= render "_item.html", item: item, conn: @conn %>
         <% end %>
     </div>
 </div>

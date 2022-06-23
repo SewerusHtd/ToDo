@@ -9,13 +9,13 @@
         <%= render "_new_project_form.html", conn: @conn, changeset: @changeset %>
     </div>
     <div class='manage-project-links'>
-        <%= link("See all tasks", to: "/items") %>
+        <%= link("See all tasks", to: Routes.items_path(@conn, :index)) %>
     </div>
 </div>
 <div id="fixed-background">
     <div id='projects-container'>
         <%= for project <- @projects do %>
-            <%= render "_project.html", project: project %>
+            <%= render "_project.html", project: project, conn: @conn %>
         <% end %>
     </div>
 </div>

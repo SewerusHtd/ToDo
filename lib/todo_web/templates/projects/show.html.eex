@@ -6,9 +6,9 @@
         Project: <%= @project.title %>
     </div>
     <div class='manage-project-links'>
-        <%= link("Back", to: "/projects") %> |
-        <%= link("Edit", to: "/projects/#{@project.id}/edit", data: [remote: true]) %> |
-        <%= link("Delete", to: "/projects/#{@project.id}", method: :delete) %>
+        <%= link("Back", to: Routes.projects_path(@conn, :index)) %> |
+        <%= link("Edit", to: Routes.projects_path(@conn, :edit, @project.id), data: [remote: true]) %> |
+        <%= link("Delete", to: Routes.projects_path(@conn, :delete, @project.id), method: :delete) %>
     </div>
     <div class='new-item-form'>
         <%= render "_new_item_form.html", conn: @conn, changeset: @changeset, project: @project %>
@@ -17,7 +17,7 @@
 <div id="fixed-background">
     <div id='items-container'>
         <%= for item <- @project.items do %>
-            <%= render TodoWeb.ItemsView, "_item.html", item: item %>
+            <%= render TodoWeb.ItemsView, "_item.html", item: item, conn: @conn %>
         <% end %>
     </div>
 </div>
