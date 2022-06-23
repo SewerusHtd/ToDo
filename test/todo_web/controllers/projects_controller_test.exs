@@ -35,7 +35,7 @@ defmodule TodoWeb.ProjectsControllerTest do
       conn = post(conn, Routes.projects_path(conn, :create), project: @create_attrs)
       assert Projects.count == 1
       assert response_content_type(conn, :javascript) =~ "charset=utf-8"
-      assert response(conn, 200) =~ "$(\"#project_title\").val(\"\");"
+      assert response(conn, 200) == "$(\"#project_title\").val(\"\");\n$(\"#project-form-errors\").html(\"\");\n"
     end
 
     test "do not create project when data is invalid", %{conn: conn} do

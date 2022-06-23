@@ -24,9 +24,12 @@ defmodule Todo.Items do
   end
 
   def create_item(params) do
-    {:ok, item}  = (%Item{}
+    (%Item{}
     |> Item.changeset(params)
     |> Repo.insert)
-    item
+  end
+
+  def count do
+    Repo.aggregate(Item, :count, :id)
   end
 end

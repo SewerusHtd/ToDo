@@ -10,10 +10,11 @@ defmodule TodoWeb.ItemsController do
   end
 
   def create(conn, %{"item" => item_params}) do
-    Items.create_item(item_params)
-    |> IO.inspect
-    |> TodoWeb.ItemsChannel.send_created()
-    render(conn, "create.js")
+    case Items.create_item(item_params) do
+      {:ok, item} -> TodoWeb.ItemsChannel.send_created(item)
+                     render(conn, "create.js", errors: nil)
+      {:error, changeset} -> render(conn, "create.js", errors: changeset.errors)
+    end
   end
 
   def complete(conn, %{"id" => id}) do

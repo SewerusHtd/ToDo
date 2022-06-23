@@ -4,4 +4,4 @@
         <%= color_input f, :color, style: 'width: 40px;' %>
     </div>
 <% end %>
-<div id="form-errors"></div>
+<div id="project-form-errors"></div>

@@ -4,3 +4,4 @@
     </label>
     <%= hidden_input f, :project_id, value: @project.id %>
 <% end %>
+<div id="item-form-errors"></div>
