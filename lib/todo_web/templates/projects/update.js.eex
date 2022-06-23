@@ -1,2 +1,5 @@
-$("#project-title").html("Project: <%= @project.title %>");
-$("html").css("background", "linear-gradient(to top, black 0%, <%= @project.color %> 40%, black 42%)");
+<%= if @project != nil do %>
+    $("#project-title").html("Project: <%= @project.title %>");
+    $("html").css("background", "linear-gradient(to top, black 0%, <%= @project.color %> 40%, black 42%)");
+<% end %>
+<%= render "_errors.html", errors: @errors %>

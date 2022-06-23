@@ -20,9 +20,9 @@ defmodule TodoWeb.ProjectsController do
   def create(conn, %{"project" => project_params}) do
     case Projects.create_project(project_params) do
       {:ok, project} -> TodoWeb.ProjectsChannel.send_created(project)
-      {:error, errors} -> IO.inspect(errors)
+                        render(conn, "create.js", errors: nil)
+      {:error, changeset} -> render(conn, "create.js", errors: changeset.errors)
     end
-    render(conn, "create.js")
   end
 
   def edit(conn, %{"id" => id}) do
@@ -32,14 +32,18 @@ defmodule TodoWeb.ProjectsController do
   end
 
   def update(conn, %{"id" => id, "project" => %{"color" => color, "title" => title}}) do
-    project = Projects.update_project(id, %{color: color, title: title})
-    TodoWeb.ProjectsChannel.send_updated(project)
-    render(conn, "update.js", project: project)
+    case Projects.update_project(id, %{color: color, title: title}) do
+      {:ok, project} ->
+        TodoWeb.ProjectsChannel.send_updated(project)
+        render(conn, "update.js", project: project, errors: nil)
+      {:error, changeset} ->
+        render(conn, "update.js", project: nil, errors: changeset.errors)
+    end
   end
 
   def delete(conn, %{"id" => id}) do
     Projects.delete_project(id)
     TodoWeb.ProjectsChannel.send_destroy(id)
-    redirect(conn, to: "/projects")
+    redirect(conn, to: Routes.projects_path(conn, :index))
   end
 end

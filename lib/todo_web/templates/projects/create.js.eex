@@ -1,1 +1,2 @@
 $("#project_title").val("");
+<%= render "_errors.html", errors: @errors %>

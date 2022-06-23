@@ -14,9 +14,9 @@ defmodule Todo.Projects do
 
   def update_project(id, params) do
     project = Repo.get(Project, id)
-    project = Ecto.Changeset.change project, params
-    {:ok, project}  = Repo.update(project)
-    project
+    (project
+    |> Project.changeset(params)
+    |> Repo.update)
   end
 
   def delete_project(id) do
