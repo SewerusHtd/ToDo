@@ -1,7 +1,6 @@
 $("#item-form-errors").html("");
 <%= if @errors != nil do %>
     <%= for error <- @errors do %>
-        <% {attr, {title, _}} = error %>
-        $("#item-form-errors").append("<%= attr %>: <%= title %>");
+        $("#item-form-errors").append("<%= error_message(error) %>");
     <% end %>
 <% end %>
