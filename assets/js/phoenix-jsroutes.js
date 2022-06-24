@@ -49,6 +49,10 @@ export function projectsUpdate(id) {
   return '/projects/' + id + '/update';
 }
  
+export function itemsIndex() {
+  return '/api/v1/items';
+}
+ 
 export function liveDashboardHome() {
   return '/dashboard';
 }

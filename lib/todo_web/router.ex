@@ -30,10 +30,12 @@ defmodule TodoWeb.Router do
     put "/projects/:id/update", ProjectsController, :update
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", TodoWeb do
-  #   pipe_through :api
-  # end
+   scope "/api/v1", TodoWeb.Api.V1 do
+     pipe_through :api
+
+     resources "/projects", ProjectsController, only: [:index, :show]
+     resources "/items", ItemsController, only: [:index, :show]
+   end
 
   # Enables LiveDashboard only for development
   #
