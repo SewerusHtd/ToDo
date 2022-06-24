@@ -1,5 +1,5 @@
-<div id='item_<%= @item.id %>' class='moving-item moving-item-<%= rem(@item.id, 4) + 1 %>'>
-    <div class='item <%= if @item.completed do 'completed' else 'incompleted' end %>' style='animation-duration: <%= Enum.random(0..30) + 15 %>s, <%= Enum.random(0..30) + 15 %>s;'>
+<div id='item_<%= @item.id %>' class='<%= prepare_moving_item_classes(@item)  %>'>
+    <div class='<%= prepare_classes(@item) %>' style='<%= prepare_styles %>'>
         <h3><%= @item.description %></h3>
 
         <div class='items-links'>

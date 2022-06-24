@@ -1,5 +1,5 @@
 <div id='project_<%= @project.id %>' class='moving-project moving-project-<%= rem(@project.id, 4) + 1 %>'>
-    <%= link(to: Routes.projects_path(@conn, :show, @project.id), class: :project, style: "animation-duration: #{Enum.random(0..30) + 15}s, #{Enum.random(0..30) + 15}s; box-shadow: 0 0 15px #{@project.color};") do %>
+    <%= link(to: Routes.projects_path(@conn, :show, @project.id), class: :project, style: prepare_styles(@project)) do %>
         <h3><%= @project.title %></h3>
     <% end %>
 </div>
